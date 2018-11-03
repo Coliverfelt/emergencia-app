@@ -1,25 +1,25 @@
 create database emergencia_app;
 
 CREATE TABLE IF NOT EXISTS `emergencia_app`.`Paciente` (
-  `idPaciente` INT NOT NULL,
+  `idPaciente` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `data_nasc` VARCHAR(45) NOT NULL,
-  `tipo_sanguineo` VARCHAR(1) NULL,
+  `tipo_sanguineo` VARCHAR(2) NULL,
   `sintomas` VARCHAR(3000) NULL,
-  `documentacao` BLOB NOT NULL,
+  `documentacao` BLOB NULL,
   `hospital` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idPaciente`))
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `emergencia_app`.`Medico` (
-  `idMedico` INT NOT NULL,
+  `idMedico` INT NOT NULL AUTO_INCREMENT,
   `Nome` VARCHAR(45) NOT NULL,
   `CRM` INT NOT NULL,
   PRIMARY KEY (`idMedico`))
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `emergencia_app`.`Lista-prioridade-atendimento` (
-  `idLista-prioridade-atendimento` INT NOT NULL,
+  `idLista-prioridade-atendimento` INT NOT NULL AUTO_INCREMENT,
   `prioridade` VARCHAR(20) NOT NULL,
   `Paciente_idPaciente` INT NOT NULL,
   `Medico_idMedico` INT NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `emergencia_app`.`Lista-prioridade-atendimento` (
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `emergencia_app`.`Recepcao` (
-  `idRecepcao` INT NOT NULL,
+  `idRecepcao` INT NOT NULL AUTO_INCREMENT,
   `aceita_paciente` TINYINT NOT NULL,
   `Paciente_idPaciente` INT NOT NULL,
   `Medico_idMedico` INT NOT NULL,
