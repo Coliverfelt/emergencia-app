@@ -1,0 +1,35 @@
+<ion-content padding id="pagina-checkin">
+    <form (ngSubmit)="cadForm()">
+      <ion-item>
+        <ion-label>Nome</ion-label>
+        <ion-input type="text" formControlName="nome"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Data de Nascimento</ion-label>
+        <ion-datetime display-format="MM/DD/YYYY" formControlName="dn"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-checkbox color="primary" checked>Sexo</ion-checkbox>
+        <ion-input type="checkbox" formControlName="Feminino"></ion-input>
+        <ion-input type="checkbox" formControlName="Masculino"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Sangue</ion-label>
+        <ion-select value="O+" ok-text="Okay" cancel-text="Dismiss">
+        <ion-select-option value="O+">O+</ion-select-option>
+        <ion-select-option value="O-">O-</ion-select-option>
+        <ion-select-option value="A+">A+</ion-select-option>
+        <ion-select-option value="A-">A-</ion-select-option>
+        <ion-select-option value="AB">AB</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </form>
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+  <ion-button size="small" expand="full" 
+    color="secondary" id="botao-checkin" (click)="irparacheckin()" [disabled]="!cad.valid">Check-in</ion-button>
+  </ion-toolbar>
+</ion-footer>
