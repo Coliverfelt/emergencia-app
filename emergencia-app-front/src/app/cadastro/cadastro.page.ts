@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { FormGroup, Validators, FormBuilder }  from '@angular/forms';
+import { FormGroup, Validators, FormBuilder, FormControl }  from '@angular/forms';
 
 @Component({
   selector: 'app-cadastro',
@@ -21,13 +21,17 @@ export class CadastroPage {
       hospital: [''],
       medico: [''],
     });
+
+    this.cadastro = new FormGroup({
+      nome: new FormControl()
+    });
   }
 
   irparahospital(){
     this.navbar.navigateForward('/hospital');
   }
 
-  cadForm(){
+  nomeForm(){
     console.log(this.cadastro.value);
   }
 }

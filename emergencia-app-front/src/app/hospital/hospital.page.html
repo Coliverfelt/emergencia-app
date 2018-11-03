@@ -1,0 +1,38 @@
+<ion-content padding id="pagina-hospital">
+    <p>Sintomas</p>
+
+    <form>
+      <ion-item>
+      <ion-checkbox color="success">Dor de cabeça</ion-checkbox>
+      <p>Dor de cabeça</p>
+      </ion-item>
+    <ion-item>
+      <ion-checkbox color="success">Enjôo</ion-checkbox>
+      <p>Enjôo</p>
+     </ion-item>
+     <ion-item>
+      <ion-checkbox color="success">Vômito</ion-checkbox>
+      <p>Vômito</p>
+      </ion-item>
+    <ion-item>
+      <ion-checkbox color="success">Desmaio</ion-checkbox>
+      <p>Desmaio</p>
+    </ion-item>
+    <ion-item>
+      <ion-checkbox color="success">Hemorragia</ion-checkbox>
+      <p>Hemorragia</p>
+    </ion-item>
+  </form> 
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button id="botao-ok" (click)="go()">
+        <ion-icon md="md-checkmark-circle-outline" color="success"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+     <ion-fab vertical="bottom" horizontal="begin" slot="fixed">
+        <ion-fab-button id="botao-nok" (click)="voltarparahome()">
+          <ion-icon md="md-close-circle" color="success"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+
+</ion-content>

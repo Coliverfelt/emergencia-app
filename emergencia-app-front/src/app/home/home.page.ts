@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
-//
+import { NavController, MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -9,10 +8,25 @@ import { NavController } from '@ionic/angular';
 })
 export class HomePage {
 
-  constructor(private navbar: NavController){}
+  constructor(private navbar: NavController, private menuCtrl: MenuController){
+
+    //this.content = this.navbar.navigateForward('/cadastro');
+  }
 
   irparacadastro(){
     this.navbar.navigateForward('/cadastro');
   }
+
+openMenu() {
+  this.menuCtrl.open();
+}
+
+closeMenu() {
+  this.menuCtrl.close();
+}
+
+toggleMenu() {
+  this.menuCtrl.toggle();
+}
 
 }
