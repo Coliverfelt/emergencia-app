@@ -18,14 +18,16 @@ export class CadastroPage {
       sexo: ['', Validators.required],
       sangue: [''],
       doenca: ['', Validators.required],
+      hospital: [''],
+      medico: [''],
     });
   }
 
-  irparacheckin(){
-    this.navbar.navigateBack('/home');
+  irparahospital(){
+    this.navbar.navigateForward('/hospital');
   }
 
   cadForm(){
-    console.log(this.cadastro.value)
+    console.log(this.cadastro.value);
   }
 }
