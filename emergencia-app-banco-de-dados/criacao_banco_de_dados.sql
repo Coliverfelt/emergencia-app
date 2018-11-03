@@ -6,14 +6,14 @@ CREATE TABLE IF NOT EXISTS `emergencia_app`.`Paciente` (
   `data_nasc` VARCHAR(45) NOT NULL,
   `tipo_sanguineo` VARCHAR(2) NULL,
   `sintomas` VARCHAR(3000) NULL,
-  `documentacao` BLOB NULL,
+  `documentacao` BLOB NOT NULL,
   `hospital` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idPaciente`))
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `emergencia_app`.`Medico` (
   `idMedico` INT NOT NULL AUTO_INCREMENT,
-  `Nome` VARCHAR(45) NOT NULL,
+  `nome` VARCHAR(45) NOT NULL,
   `CRM` INT NOT NULL,
   PRIMARY KEY (`idMedico`))
 ENGINE = InnoDB;

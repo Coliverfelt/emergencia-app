@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Recepcao } from './recepcao.entidade';
 
 @Entity()
 export class Paciente {
@@ -22,4 +23,7 @@ export class Paciente {
 
   @Column({ length: 45, nullable: false })
   hospital: string;
+
+  @OneToMany(type => Recepcao, recepcao => recepcao.paciente)
+  recepcoes: Recepcao[];
 }
