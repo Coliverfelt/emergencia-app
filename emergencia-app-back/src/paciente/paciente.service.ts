@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Paciente } from 'Entidades/paciente.entidade';
 import { Repository } from 'typeorm';
-import { Medico } from 'Entidades/medico.entidade';
 import { Recepcao } from 'Entidades/recepcao.entidade';
 
 @Injectable()
