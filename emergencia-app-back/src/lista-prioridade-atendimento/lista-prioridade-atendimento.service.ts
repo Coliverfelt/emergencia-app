@@ -1,14 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
 import { Paciente } from 'Entidades/paciente.entidade';
 import { Recepcao } from 'Entidades/recepcao.entidade';
+import { Repository } from 'typeorm';
 
 @Injectable()
-export class RecepcaoService {
-    
+export class ListaPrioridadeAtendimentoService {
+
     constructor(@InjectRepository(Paciente) 
-                    private readonly pacienteRepositorio: Repository<Paciente>
+                    private readonly pacienteRepositorio: Repository<Paciente>,
+                @InjectRepository(Recepcao) 
+                    private readonly recepcaoRepositorio: Repository<Recepcao>
                 ){}
 
     async acharTodos(): Promise<Paciente[]> {
@@ -25,4 +27,5 @@ export class RecepcaoService {
         
         return await this.pacienteRepositorio.findByIds(idsPacientesListas);
     }
+    
 }

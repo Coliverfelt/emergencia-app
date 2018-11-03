@@ -11,9 +11,4 @@ export class RecepcaoController {
         return await this.service.acharTodos();
     }
 
-    /*@Get('medicosDisponiveis')
-    async achaTodosMedicosParaCredenciamento() {
-        return await this.service.acharTodosMedicos();
-    }*/
-
 }
