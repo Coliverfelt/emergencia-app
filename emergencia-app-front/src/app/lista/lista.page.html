@@ -1,19 +1,18 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Lista de Check-in</ion-title>
-  </ion-toolbar>
-</ion-header>
 
+<ion-header translucent>
+    <ion-toolbar color="primary">
+      <ion-title text-center id="checkin">Lista de Check-in</ion-title>
+    </ion-toolbar>
+  </ion-header>
 <ion-content padding>
 
-    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-        <ion-fab-button id="botao-ok" (click)="encaminhamed()">
-          <ion-icon md="md-checkmark-circle-outline" color="success"></ion-icon>
-        </ion-fab-button>
-    </ion-fab>
-    <ion-fab vertical="bottom" horizontal="begin" slot="fixed">
-      <ion-fab-button id="botao-nok" (click)="voltarparahome()">
-        <ion-icon md="md-close-circle" color="success"></ion-icon>
+    <ion-fab-button id="botao-ok" (click)="diagnostico()">
+        <ion-icon md="md-arrow-dropright-circle" color="light"></ion-icon>
       </ion-fab-button>
+    </ion-fab>
+      <ion-fab vertical="bottom" horizontal="begin" slot="fixed">
+        <ion-fab-button id="botao-nok" (click)="voltarparahome()">
+          <ion-icon  md="md-arrow-dropleft-circle" color="light"></ion-icon>
+        </ion-fab-button>
     </ion-fab>
 </ion-content>

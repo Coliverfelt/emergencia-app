@@ -7,16 +7,7 @@
 
 <ion-content padding id="pagina-hospital">
 
-<!----<ion-menu side="start">
-<ion-header>
-    <ion-toolbar>
-      <ion-title>Sintomas</ion-title>
-    </ion-toolbar>
-</ion-header>
-<ion-router-outlet></ion-router-outlet>
-</ion-menu>-->
-
-<form>
+ <form>
   <ion-item>
     <ion-checkbox color="success">Dor de cabeça</ion-checkbox>
       <p>Dor de cabeça</p>
@@ -35,20 +26,14 @@
     </ion-item>
 </form> 
 
-  <!----<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button id="botao-ok" (click)="go()">
-      <ion-icon md="md-" color="success"></ion-icon>
+      <ion-icon md="md-arrow-dropright-circle" color="light"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-    <ion-fab >
-      <ion-fab-button vertical="bottom" horizontal="begin" slot="fixed" id="botao-nok" (click)="voltarparahome()">
-        <ion-icon md="md-arrow-dropleft-outline" color="success"></ion-icon>
+    <ion-fab vertical="bottom" horizontal="begin" slot="fixed">
+      <ion-fab-button id="botao-nok" (click)="voltarparahome()">
+        <ion-icon  md="md-arrow-dropleft-circle" color="light"></ion-icon>
       </ion-fab-button>
-    </ion-fab>-->
-
-    <button ion-button icon-start>
-        <ion-icon name="star"></ion-icon>
-        Left Icon
-      </button>
-
+  </ion-fab>
 </ion-content>

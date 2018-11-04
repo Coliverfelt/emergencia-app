@@ -1,9 +1,15 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>diagnostico</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content padding>
+<ion-header translucent>
+    <ion-toolbar color="primary">
+      <ion-title text-center id="diagnostico">Diagnóstico</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
+<ion-content padding id="diagnostico">
+
+        <ion-fab vertical="bottom" horizontal="begin" slot="fixed">
+          <ion-fab-button id="botao-nok" (click)="listaped()">
+            <ion-icon  md="md-arrow-dropleft-circle" color="light"></ion-icon>
+          </ion-fab-button>
+      </ion-fab>
 </ion-content>
