@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'situacao', loadChildren: './situacao/situacao.module#SituacaoPageModule' },
   { path: 'lista', loadChildren: './lista/lista.module#ListaPageModule' },
   { path: 'diagnostico', loadChildren: './diagnostico/diagnostico.module#DiagnosticoPageModule' },
+  { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' },
 
 ];
 

@@ -30,7 +30,7 @@ export class CadastroPage implements OnInit{
         return;
     }
 
-    this.navbar.navigateForward('/hospital');
+    this.navbar.navigateForward('/perfil');
   }
 
   voltarparahome(){
