@@ -1,10 +1,10 @@
 {
     "type": "mysql",
-    "host": "localhost",
-    "port": 3306,
-    "username": "root",
-    "password": "root",
-    "database": "emergencia_app",
+    "host": "mysql642.umbler.com",
+    "port": 41890,
+    "username": "emeragil",
+    "password": "emeragil123",
+    "database": "emeragil",
     "entities": ["src/**/**.entidade{.ts,.js}"],
     "synchronize": true
   }

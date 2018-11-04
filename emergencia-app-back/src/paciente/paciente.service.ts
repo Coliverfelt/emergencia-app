@@ -18,16 +18,18 @@ export class PacienteService {
         return this.pacienteRepositorio.find();
     }
 
-    async inserir(paciente: Paciente) {
+    async inserir(paciente) {
         await this.pacienteRepositorio.createQueryBuilder()
             .insert()
             .into(Paciente)
             .values([
                 {   nome: paciente.nome, 
-                    data_nasc: paciente.data_nasc, 
-                    hospital: paciente.hospital, 
-                    documentacao: paciente.documentacao,
+                    data_nasc: paciente.data_nasc,
+                    tipo_sanguineo: paciente.tipo_sanguineo,
                     sexo: paciente.sexo,
+                    hospital: paciente.hospital, 
+                    prioridade: paciente.prioridade,
+                    mensagem: paciente.mensagem
                 }
             ])
             .execute();

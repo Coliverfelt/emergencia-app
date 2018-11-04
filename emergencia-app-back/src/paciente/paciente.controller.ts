@@ -14,8 +14,8 @@ export class PacienteController {
     }
 
     @Post('inserirPaciente')
-    async InserirPaciente(@Body() paciente: Paciente) {
-        await this.service.inserir(paciente);
+    async InserirPaciente(@Body() paciente) {
+        return await this.service.inserir(paciente);
     }
 
     @Post('preparaSintomas')
