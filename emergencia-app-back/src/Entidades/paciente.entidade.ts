@@ -1,7 +1,4 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, OneToOne, JoinColumn } from 'typeorm';
-import { Recepcao } from './recepcao.entidade';
-import { ListaPrioridadeAtendimento } from './lista-prioridade-atendimento.entidade';
-import { PacienteEClassificacaoRisco } from './paciente-e-classificacao-risco.entidade';
 
 @Entity()
 export class Paciente {
@@ -26,13 +23,9 @@ export class Paciente {
   @Column({ length: 45, nullable: false })
   hospital: string;
 
-  @OneToOne(type => ListaPrioridadeAtendimento)
-  @JoinColumn()
-  prioridadeAtendimento: ListaPrioridadeAtendimento;
+  @Column({ length: 20, nullable: true})
+  prioridade: string;
 
-  @OneToMany(type => Recepcao, recepcao => recepcao.paciente)
-  recepcoes: Recepcao[];
-
-  @OneToMany(type => PacienteEClassificacaoRisco, pacienteEClassificacaoRisco => pacienteEClassificacaoRisco.paciente)
-  pacienteEClassificacaoRisco: PacienteEClassificacaoRisco[];
+  @Column({ length: 255, nullable: true})
+  mensagem: string;
 }

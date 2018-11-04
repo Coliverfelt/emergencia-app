@@ -10,4 +10,5 @@ export class ListaPrioridadeAtendimento {
 
   @Column({ length: 255, nullable: false})
   mensagem: string;
+
 }

@@ -2,22 +2,14 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Paciente } from 'Entidades/paciente.entidade';
 import { Repository } from 'typeorm';
-import { Recepcao } from 'Entidades/recepcao.entidade';
 import { ListaPrioridadeAtendimento } from 'Entidades/lista-prioridade-atendimento.entidade';
 import { ClassificacaoRisco } from 'Entidades/classificacao-risco.entidade';
-import { PacienteEClassificacaoRisco } from 'Entidades/paciente-e-classificacao-risco.entidade';
 
 @Injectable()
 export class PacienteService {
 
     constructor(@InjectRepository(Paciente) 
                     private readonly pacienteRepositorio: Repository<Paciente>,
-                @InjectRepository(Recepcao) 
-                    private readonly recepcaoRepositorio: Repository<Recepcao>,
-                @InjectRepository(ClassificacaoRisco) 
-                    private readonly classificacaoRiscoRepositorio: Repository<ClassificacaoRisco>,
-                @InjectRepository(PacienteEClassificacaoRisco) 
-                    private readonly pacienteEClassificacaoRiscoRepositorio: Repository<PacienteEClassificacaoRisco>,
                 @InjectRepository(ListaPrioridadeAtendimento) 
                     private readonly listaPrioridadeAtendimentoRepositorio: Repository<ListaPrioridadeAtendimento>
                 ){}
@@ -28,76 +20,55 @@ export class PacienteService {
 
     async inserir(paciente: Paciente) {
         await this.pacienteRepositorio.createQueryBuilder()
-        .insert()
-        .into(Paciente)
-        .values([
-            {   nome: paciente.nome, 
-                data_nasc: paciente.data_nasc, 
-                hospital: paciente.hospital, 
-                documentacao: paciente.documentacao,
-                sexo: paciente.sexo,
-            }
-         ])
-        .execute();
+            .insert()
+            .into(Paciente)
+            .values([
+                {   nome: paciente.nome, 
+                    data_nasc: paciente.data_nasc, 
+                    hospital: paciente.hospital, 
+                    documentacao: paciente.documentacao,
+                    sexo: paciente.sexo,
+                }
+            ])
+            .execute();
     }
 
-    async prepararEnvio() {
+    async atualizarClassificacao(classificacaoRisco: ClassificacaoRisco[]) {
+        let prioridade: number = 0;
         const ultimoId = await this.pacienteRepositorio.createQueryBuilder('paciente')
             .getCount();
-        
-        const todasClassificacos: ClassificacaoRisco[] = await this.classificacaoRiscoRepositorio.find();
 
         const pacienteForeign: Paciente = await this.pacienteRepositorio.createQueryBuilder('paciente')
             .where('paciente.idPaciente = :id', {id: ultimoId})
             .getOne();
 
-        await todasClassificacos.forEach(element => {
-            this.pacienteEClassificacaoRiscoRepositorio.createQueryBuilder()
-                .insert()
-                .into(PacienteEClassificacaoRisco)
-                .values([
-                    {
-                        paciente: pacienteForeign,
-                        classificacaoRisco: element
-                    }
-                ])
-                .execute();
+        classificacaoRisco.forEach(element => {
+            if (element.marcado === 1) {
+                prioridade += element.peso;
+            }
         });
 
-        /*await this.recepcaoRepositorio.createQueryBuilder()
-        .insert()
-        .into(Recepcao)
-        .values([
-            {   
-                paciente: pacienteForeign, 
-            }
-         ])
-        .execute();*/
+        if (prioridade <= 1) {
+            this.atualizaPrioridade(1, pacienteForeign.idPaciente);
+        } else if (prioridade == 2) {
+            this.atualizaPrioridade(2, pacienteForeign.idPaciente);
+        } else if (prioridade == 3) {
+            this.atualizaPrioridade(3, pacienteForeign.idPaciente);
+        } else if (prioridade >= 4) {
+            this.atualizaPrioridade(4, pacienteForeign.idPaciente);
+        }
     }
 
-    /*async inserePacienteComTamanhoRisco(paciente: Paciente) {
+    async atualizaPrioridade(idPrioridade: number, idPac: number) {
 
-        const prioridadeAtendimento: ListaPrioridadeAtendimento = 
-            await this.listaPrioridadeAtendimentoRepositorio
-            .createQueryBuilder('listaPrioridadeAtendimentoRepositorio')
-            .where('listaPrioridadeAtendimentoRepositorio.prioridadeAtendimento.idListaPrioridadeAtendimento = :id', 
-                {id: paciente.prioridadeAtendimento.idListaPrioridadeAtendimento})
-            .getOne();
-            
+        const prioridade: ListaPrioridadeAtendimento[] = 
+            await this.listaPrioridadeAtendimentoRepositorio.findByIds([idPrioridade]);
 
         await this.pacienteRepositorio.createQueryBuilder()
-        .insert()
-        .into(Paciente)
-        .values([
-            {   nome: paciente.nome, 
-                data_nasc: paciente.data_nasc, 
-                hospital: paciente.hospital, 
-                documentacao: paciente.documentacao,
-                sexo: paciente.sexo,
-                prioridadeAtendimento: prioridadeAtendimento
-            }
-         ])
-        .execute();
-    }*/
+            .update(Paciente)
+            .set({prioridade: prioridade[0].prioridade, mensagem: prioridade[0].mensagem})
+            .where("idPaciente = :id", {id: idPac})
+            .execute();
+    }
 
 }
