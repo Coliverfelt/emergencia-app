@@ -1,19 +1,19 @@
 <ion-content padding id="pagina-cadastro">  
 
-  <form validate>
+  <form [formGroup]="cadastro">
       <ion-item>
         <ion-label>Nome</ion-label>
-        <ion-input type="text" formControlName="nome"></ion-input>
+        <ion-input type="text" formControl="nome"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Data de Nascimento</ion-label>
-        <ion-datetime display-format="MM/DD/YYYY" formControlName="dn"></ion-datetime>
+        <ion-datetime formControl="dn" display-format="MM/DD/YYYY" formControlName="dn"></ion-datetime>
       </ion-item>
 
       <ion-item>
           <ion-label>Gênero</ion-label>
-          <ion-select value="Feminino" ok-text="Okay" cancel-text="Dismiss">
+          <ion-select formControl="sexo"value="Feminino" ok-text="Okay" cancel-text="Dismiss">
           <ion-select-option value="Feminino">Feminino</ion-select-option>
           <ion-select-option value="Masculino">Masculino</ion-select-option>
           </ion-select>
@@ -32,7 +32,7 @@
 
       <ion-item>
           <ion-label>Doenças Pré Existentes</ion-label>
-          <ion-input type="text" formControlName="doenca"></ion-input>
+          <ion-input formControl="doenca" type="text" formControlName="doenca"></ion-input>
       </ion-item>
 
       <ion-item>
