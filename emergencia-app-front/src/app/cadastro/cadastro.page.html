@@ -41,10 +41,10 @@
           </ion-select>
       </ion-item>
 
-      <ion-button [disabled]="cadastrarForm.invalid" type="submit" size="full" 
-        color="primary" id="botao-checkin">Salvar</ion-button>
+      <ion-button type="submit" size="full" 
+        color="primary" id="botao-checkin" (click)="voltarparahome()">Salvar</ion-button>
   </form> 
 
 </ion-content>
 
-
+<!--[disabled]="cadastrarForm.invalid" -->
