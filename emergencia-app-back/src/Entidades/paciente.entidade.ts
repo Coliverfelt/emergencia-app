@@ -17,9 +17,6 @@ export class Paciente {
   @Column({ length: 1, nullable: false })
   sexo: string;
 
-  @Column({ type: "blob", nullable: false })
-  documentacao: string;
-
   @Column({ length: 45, nullable: false })
   hospital: string;
 
