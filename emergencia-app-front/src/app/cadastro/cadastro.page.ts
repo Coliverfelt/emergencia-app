@@ -7,14 +7,32 @@ import { FormGroup, Validators, FormBuilder, FormControl, AbstractFormGroupDirec
   templateUrl: './cadastro.page.html',
   styleUrls: ['./cadastro.page.scss'],
 })
-export class CadastroPage {
+export class CadastroPage implements OnInit{
+
+  cadastrarForm: FormGroup;
+  cadastrar = false;
   
   constructor( private formBuilder: FormBuilder, private navbar: NavController ) {
   }
 
-  irparahospital(){
+  ngOnInit() {
+    this.cadastrarForm = this.formBuilder.group({
+      nome: ['', Validators.required],
+      data_nasc: ['', Validators.required],
+    });
+ }
+
+  onSubmit() {
+    console.log(this.cadastrarForm.controls)
+    this.cadastrar = true;
+
+    if (this.cadastrarForm.invalid) {
+        return;
+    }
+
     this.navbar.navigateForward('/hospital');
   }
+
 
 }
 

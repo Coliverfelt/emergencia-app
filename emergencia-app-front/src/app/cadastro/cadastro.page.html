@@ -1,27 +1,29 @@
 <ion-content padding id="pagina-cadastro">  
 
-  <form [formGroup]="cadastro">
+    <ion-img src="/assets/image/Emeragil - PPT Vertical.png"></ion-img>
+
+  <form [formGroup]="cadastrarForm" (ngSubmit)="onSubmit()">
       <ion-item>
         <ion-label>Nome</ion-label>
-        <ion-input type="text" formControl="nome"></ion-input>
+        <ion-input formControlName="nome" type="text"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Data de Nascimento</ion-label>
-        <ion-datetime formControl="dn" display-format="MM/DD/YYYY" formControlName="dn"></ion-datetime>
+        <ion-datetime formControlName="data_nasc" display-format="MM/DD/YYYY"></ion-datetime>
       </ion-item>
 
       <ion-item>
           <ion-label>Gênero</ion-label>
-          <ion-select formControl="sexo"value="Feminino" ok-text="Okay" cancel-text="Dismiss">
-          <ion-select-option value="Feminino">Feminino</ion-select-option>
-          <ion-select-option value="Masculino">Masculino</ion-select-option>
+          <ion-select value="F" cancel-text="Dismiss">
+            <ion-select-option value="F">Feminino</ion-select-option>
+            <ion-select-option value="M">Masculino</ion-select-option>
           </ion-select>
       </ion-item>
 
       <ion-item>
         <ion-label>Sangue</ion-label>
-        <ion-select value="O+" ok-text="Ok" cancel-text="Cancelar">
+        <ion-select value="O+" cancel-text="Cancelar">
         <ion-select-option value="O+">O+</ion-select-option>
         <ion-select-option value="O-">O-</ion-select-option>
         <ion-select-option value="A+">A+</ion-select-option>
@@ -31,31 +33,18 @@
       </ion-item>
 
       <ion-item>
-          <ion-label>Doenças Pré Existentes</ion-label>
-          <ion-input formControl="doenca" type="text" formControlName="doenca"></ion-input>
-      </ion-item>
-
-      <ion-item>
           <ion-label>Hospital</ion-label>
-          <ion-select value="copador" ok-text="Ok" cancel-text="Cancelar">
-            <ion-select-option value="copador">Copa D'Or</ion-select-option>
-            <ion-select-option value="pasteur">Pasteur</ion-select-option>
-            <ion-select-option value="badim">Badim</ion-select-option>
+          <ion-select value="Copa D'Or" cancel-text="Cancelar">
+            <ion-select-option value="Copa D'Or">Copa D'Or</ion-select-option>
+            <ion-select-option value="Pasteur">Pasteur</ion-select-option>
+            <ion-select-option value="Badim">Badim</ion-select-option>
           </ion-select>
       </ion-item>
-      
-      <ion-item>
-          <ion-label>Médico</ion-label>
-          <ion-input type="text" formControlName="medico"></ion-input>
-      </ion-item>
-    
 
-    <ion-footer>
-        <ion-button size="full"
-          color="success" id="botao-checkin" (click)="irparahospital()">Check-in</ion-button>
-    </ion-footer>   
-
+      <ion-button [disabled]="cadastrarForm.invalid" type="submit" size="full" 
+        color="primary" id="botao-checkin">Salvar</ion-button>
   </form> 
 
 </ion-content>
+
 
