@@ -1,5 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
-import { Recepcao } from './recepcao.entidade';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, OneToOne, JoinColumn } from 'typeorm';
 
 @Entity()
 export class Paciente {
@@ -15,8 +14,8 @@ export class Paciente {
   @Column({ length: 2, nullable: true })
   tipo_sanguineo: string;
 
-  @Column({ length: 3000, nullable: true })
-  sintomas: string;
+  @Column({ length: 1, nullable: false })
+  sexo: string;
 
   @Column({ type: "blob", nullable: false })
   documentacao: string;
@@ -24,6 +23,9 @@ export class Paciente {
   @Column({ length: 45, nullable: false })
   hospital: string;
 
-  @OneToMany(type => Recepcao, recepcao => recepcao.paciente)
-  recepcoes: Recepcao[];
+  @Column({ length: 20, nullable: true})
+  prioridade: string;
+
+  @Column({ length: 255, nullable: true})
+  mensagem: string;
 }
