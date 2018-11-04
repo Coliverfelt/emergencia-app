@@ -9,37 +9,12 @@ import { FormGroup, Validators, FormBuilder, FormControl, AbstractFormGroupDirec
 })
 export class CadastroPage {
   
-  cadastro : FormGroup;
-  control = new FormControl('', Validators.required)
-   )
   constructor( private formBuilder: FormBuilder, private navbar: NavController ) {
-    this.cadastro = (this.formBuilder.group({
-      nome: ['', Validators.required],
-      dn: ['', Validators.required],
-      sexo: ['', Validators.required],
-      sangue: [''],
-      doenca: ['', Validators.required],
-      hospital: [''],
-      medico: ['']
-    });
-   
-    this.cadastro = new FormGroup({
-      nome: new FormControl(),
-      dn: new FormControl(),
-      sexo: new FormControl(),
-      sangue: new FormControl(),
-      doenca: new FormControl(),
-      hospital: new FormControl(),
-      medico: new FormControl()
-    });
   }
 
   irparahospital(){
     this.navbar.navigateForward('/hospital');
   }
 
-  nomeForm(){
-    console.log(this.cadastro.value);
-  }
 }
 
