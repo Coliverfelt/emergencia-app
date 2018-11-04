@@ -50,7 +50,7 @@ export class CadastroPage implements OnInit{
       console.log(paciente);
     });
     this.service.getPaciente();
-    this.navbar.navigateForward('/hospital');
+    this.navbar.navigateForward('/perfil');
   }
 
   voltarparahome(){
