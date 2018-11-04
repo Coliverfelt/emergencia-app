@@ -1,18 +1,30 @@
-<ion-content padding id="pagina-go">
-    <p>Situação
+  <ion-header translucent>
+      <ion-toolbar color="primary">
+        <ion-title text-center id="Situação">Situação</ion-title>
+      </ion-toolbar>
+    </ion-header>
 
-        //Somar valor das doenças e retornar a situação
+  <ion-content padding id="pagina-go">
+    <p text-center>  
+      <ion-icon id="disc" md="md-disc" color="danger"></ion-icon>
+    </p>
+    
+    <p text-center>  
+        Nosso hospital está pronto para lhe atender!
+    </p>
+
+    <p text-center>  
+        Você será atendido de imediato!
     </p>
 
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
         <ion-fab-button id="botao-ok" (click)="lista()">
-          <ion-icon md="md-checkmark-circle-outline" color="success"></ion-icon>
+          <ion-icon md="md-arrow-dropright-circle" color="light"></ion-icon>
         </ion-fab-button>
-    </ion-fab>
-    <ion-fab vertical="bottom" horizontal="begin" slot="fixed">
-      <ion-fab-button id="botao-nok" (click)="voltarparahome()">
-        <ion-icon md="md-close-circle" color="success"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
-
+      </ion-fab>
+        <ion-fab vertical="bottom" horizontal="begin" slot="fixed">
+          <ion-fab-button id="botao-nok" (click)="voltarparahome()">
+            <ion-icon  md="md-arrow-dropleft-circle" color="light"></ion-icon>
+          </ion-fab-button>
+      </ion-fab>
 </ion-content>

@@ -1,11 +1,26 @@
 #pagina-hospital{
 
-    background: "danger";
+   // background: "danger";
 }
 
 
-#botao-go{
+#botao-ok{
 
     margin-top: 60%;
     color: #FFFFFF;
+}
+
+#botao-nok{
+
+    margin-left: 20%;
+   // color: #FFFFFF;
+}
+
+#sintomas{
+
+    font-family: "Verdana" !important;
+    font-size: 4vh !important;
+    font-weight: bold !important;
+    margin: 0 !important;
+    background: linear(rgb(123, 237, 83)) !important;
 }

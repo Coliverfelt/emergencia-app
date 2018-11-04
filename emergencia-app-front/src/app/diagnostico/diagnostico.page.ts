@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { FormBuilder }  from '@angular/forms';
 
 @Component({
   selector: 'app-diagnostico',
   templateUrl: './diagnostico.page.html',
   styleUrls: ['./diagnostico.page.scss'],
 })
-export class DiagnosticoPage implements OnInit {
+export class DiagnosticoPage {
 
-  constructor() { }
+  constructor(private navbar: NavController) { }
 
-  ngOnInit() {
+  voltarparahome(){
+    this.navbar.navigateBack('/home');
   }
 
 }

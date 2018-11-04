@@ -53,6 +53,9 @@ export class CadastroPage implements OnInit{
     this.navbar.navigateForward('/hospital');
   }
 
+  voltarparahome(){
+    this.navbar.navigateBack('/home');
+  }
 
 }
 

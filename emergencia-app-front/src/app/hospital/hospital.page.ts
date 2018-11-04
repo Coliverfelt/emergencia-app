@@ -12,9 +12,7 @@ export class HospitalPage {
   sintomas : FormGroup;
 
   constructor( private formBuilder: FormBuilder, private navbar: NavController ) {
-    this.sintomas = this.formBuilder.group({
-      sintomas: ['', Validators.required],
-    });
+  
   }
   go(){
     this.navbar.navigateForward('/go');
