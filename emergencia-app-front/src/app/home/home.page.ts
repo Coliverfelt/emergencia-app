@@ -8,25 +8,10 @@ import { NavController, MenuController } from '@ionic/angular';
 })
 export class HomePage {
 
-  constructor(private navbar: NavController, private menuCtrl: MenuController){
-
-    //this.content = this.navbar.navigateForward('/cadastro');
-  }
+  constructor(private navbar: NavController, private menuCtrl: MenuController){}
 
   irparacadastro(){
     this.navbar.navigateForward('/cadastro');
   }
-
-openMenu() {
-  this.menuCtrl.open();
-}
-
-closeMenu() {
-  this.menuCtrl.close();
-}
-
-toggleMenu() {
-  this.menuCtrl.toggle();
-}
 
 }
